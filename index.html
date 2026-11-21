@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna Café</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ==========================================
+     NAVBAR
+========================================== -->
+<nav class="navbar">
+    <!-- لوگوی واقعی -->
+    <div class="logo">
+        <img
+            src="images/logo-cafe.png"
+            alt="Luna Café"
+        >
+    </div>
+    <!-- منوی سایت -->
+    <div class="nav-links">
+        <a href="#home" class="active">
+            <span class="icon">⌂</span>
+            خانه
+        </a>
+        <a href="#menu">
+            <span class="icon">☷</span>
+            منوی کافه
+        </a>
+        <a href="#contact">
+            <span class="icon">✉</span>
+            تماس با ما
+        </a>
+    </div>
+</nav>
+<!-- ==========================================
+     MAIN
+========================================== -->
+<main id="home">
+    <!-- ======================================
+         HERO
+    ======================================= -->
+    <section class="hero">
+        <!-- متن -->
+        <div class="hero-content">
+            <h1>
+                به
+                <span>Luna Café</span>
+                خوش آمدید
+            </h1>
+            <div class="decorative-line">
+                ───── ♡ ─────
+            </div>
+            <p>
+                جایی برای آرامش، طعم خوب
+                و لحظه‌های خاص ♡
+            </p>
+        </div>
+        <!-- عکس قهوه -->
+        <div class="hero-image">
+            <img
+                src="images/hero-coffee.jpeg"
+                alt="فنجان قهوه"
+            >
+        </div>
+    </section>
+    <!-- ======================================
+         MENU
+    ======================================= -->
+    <section class="menu-section" id="menu">
+        <!-- عنوان -->
+        <div class="menu-title">
+            <span class="line"></span>
+            <div class="title-center">
+                <div class="small-cup">
+                    ☕
+                </div>
+                <h2>
+                    منوی کافه
+                </h2>
+            </div>
+            <span class="line"></span>
+        </div>
+        <!-- ==================================
+             CARDS
+        ================================== -->
+        <div class="menu-grid">
+            <!-- کاپوچینو -->
+            <div class="menu-card">
+                <img
+                    src="images/Cappuccino.jpg"
+                    alt="کاپوچینو"
+                >
+                <div class="card-content">
+                    <h3>
+                        کاپوچینو
+                    </h3>
+                    <p>
+                        قهوه‌ای خوش‌عطر با شیر و کف شیر
+                    </p>
+                    <div class="price">
+                        ۲۲۰,۰۰۰ تومان
+                    </div>
+                    <button class="order-btn" onclick="addToCart('کاپوچینو', 220000)">
+    افزودن به سبد
+</button>
+                </div>
+            </div>
+            <!-- لاته -->
+            <div class="menu-card">
+                <img
+                    src="images/latte.jpg"
+                    alt="لاته"
+                >
+                <div class="card-content">
+                    <h3>
+                        لاته
+                    </h3>
+                    <p>
+                        قهوه‌ای ملایم با شیر گرم و خامه
+                    </p>
+                    <div class="price">
+                        ۲۳۵,۰۰۰ تومان
+                    </div>
+                    <button
+    class="order-btn"
+    onclick="addToCart('لاته', 235000)">
+    افزودن به سبد 
+</button>
+                </div>
+            </div>
+            <!-- چیزکیک -->
+            <div class="menu-card">
+                <img
+                    src="images/cheesecake.jpg"
+                    alt="چیزکیک"
+
+          >
+                <div class="card-content">
+                    <h3>
+                        چیزکیک
+                    </h3>
+                    <p>
+                        چیزکیک لطیف با طعم وانیل و توت‌فرنگی
+                    </p>
+                    <div class="price">
+                        ۳۶۰,۰۰۰ تومان
+                    </div>
+                    <button
+    class="order-btn"
+    onclick="addToCart('چیزکیک', 360000)">
+    افزودن به سبد 
+</button>
+                </div>
+            </div>
+            <!-- موکا -->
+            <div class="menu-card">
+                <img
+                    src="images/mocha.jpg"
+                    alt="موکا"
+                >
+                <div class="card-content">
+                    <h3>
+                        موکا
+                    </h3>
+                    <p>
+                        قهوه‌ای دلچسب با شکلات و شیر گرم
+                    </p>
+                    <div class="price">
+                        ۱۸۵,۰۰۰ تومان
+                    </div>
+                    <button
+    class="order-btn"
+    onclick="addToCart('موکا', 185000)">
+    افزودن به سبد 
+</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- سبد خرید -->
+
+<section class="cart-section" id="cart">
+    <h2>سبد خرید </h2>
+    <div id="cart-items">
+        <p>سبد خرید شما خالی است.</p>
+    </div>
+    <div class="cart-total">
+        مبلغ کل: <strong id="cart-total">۰ تومان</strong>
+    </div>
+    <a href="#order" class="continue-order-btn">
+    ادامه سفارش 
+</a>
+<section class="order-section" id="order">
+
+    <h2>ثبت سفارش 🛒</h2>
+    <p>
+        اطلاعاتت رو وارد کن تا سفارش ثبت بشه.
+    </p>
+    <div class="order-summary">
+
+    <h3>خلاصه سفارش</h3>
+    <div id="order-summary-items">
+        <!-- محصولات اینجا نمایش داده می‌شوند -->
+    </div>
+    <div class="order-summary-total">
+        مبلغ کل:
+        <strong id="order-summary-total">۰ تومان</strong>
+    </div>
+</div>
+    <form id="order-form">
+        <label for="customer-name">
+            نام و نام خانوادگی
+        </label>
+        <input
+            type="text"
+            id="customer-name"
+            placeholder="مثلاً: مهسا احمدی"
+            required
+        >
+        <label for="customer-phone">
+            شماره تماس
+        </label>
+        <input
+            type="tel"
+            id="customer-phone"
+            placeholder="مثلاً: ۰۹۱۲۱۲۳۴۵۶۷"
+            required
+        >
+        <label for="customer-address">
+            آدرس
+        </label>
+        <textarea
+            id="customer-address"
+            placeholder="آدرس محل تحویل..."
+            required
+        ></textarea>
+        <label for="payment-method">
+            روش پرداخت
+        </label>
+        <select id="payment-method" required>
+            <option value="">
+                انتخاب کنید
+            </option>
+            <option value="cash">
+                پرداخت هنگام دریافت
+            </option>
+            <option value="online">
+                پرداخت آنلاین
+            </option>
+        </select>
+        <label for="order-note">
+            توضیحات سفارش
+        </label>
+        <textarea
+            id="order-note"
+            placeholder="مثلاً بدون شکر، شیر کم‌چرب و..."
+        ></textarea>
+        <button type="submit">
+            ثبت نهایی سفارش
+        </button>
+    </form>
+</section>
+    <!-- ======================================
+         CONTACT
+    ======================================= -->
+    <!-- بخش تماس -->
+
+<section class="contact-section" id="contact">
+    <div class="contact-title">
+        <span class="line"></span>
+        <div>
+            <span class="contact-icon">☕</span>
+            <h2>با Luna Café در ارتباط باشید</h2>
+        </div>
+        <span class="line"></span>
+    </div>
+    <p class="contact-description">
+        برای سفارش، رزرو میز یا هر سوالی که داری،
+        خوشحال می‌شیم با ما در ارتباط باشی ♡
+    </p>
+    <div class="contact-info">
+        <div class="contact-item">
+            <span>📞</span>
+            <div>
+                <strong>شماره تماس</strong>
+                <p>۰۱۳-۱۲۳۴۵۶۷۸</p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <span>📍</span>
+            <div>
+                <strong>آدرس</strong>
+                <p>لاهیجان، خیابان کافه</p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <span>🕐</span>
+            <div>
+                <strong>ساعات کاری</strong>
+                <p>هر روز ۹ صبح تا ۱۱ شب</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- فوتر -->
+<footer>
+    <div class="footer-logo">
+        Luna Café
+    </div>
+    <p>
+        جایی برای آرامش، طعم خوب و لحظه‌های خاص 
+    </p>
+    <div class="footer-line"></div>
+    <small>
+        © 2026 Luna Café — همه حقوق محفوظ است.
+    </small>
+</footer>
+</main>
+<!-- ==========================================
+     FOOTER
+========================================== -->
+<!-- پیام موفقیت سفارش -->
+
+<div id="success-message" class="success-message">
+    <div class="success-icon">
+        ✓
+    </div>
+    <h3>
+        سفارش با موفقیت ثبت شد 
+    </h3>
+    <p>
+        ممنون که Luna Café رو انتخاب کردی ♡
+    </p>
+    <button onclick="closeSuccessMessage()">
+        باشه
+    </button>
+</div>
+<footer>
+    <p>
+        © 2026 Luna Café
+    </p>
+    <a href="#cart" class="floating-cart">
+
+    <span class="cart-icon">
+        🛒
+        <span id="cart-count">0</span>
+    </span>
+    <span>سبد خرید</span>
+</a>
+    <script src="script.js"></script>
+</footer>
+</body>
+</html>
